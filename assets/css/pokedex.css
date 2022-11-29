@@ -84,11 +84,50 @@
     margin: .5rem;
     padding: 1rem;
     border-radius: 1rem;
+    position: relative;
+}
+
+.pokemon::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-image: radial-gradient(#fff 0, rgba(255,255,255,0) 50%);
+    transform: scale(1);
+    opacity: 0;
+}
+
+@keyframes pokemon-touch {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.pokemon:active::before {
+    animation: pokemon-touch 0.4s ease;
+}
+
+.pokemon>* {
+    z-index: 2;
 }
 
 .pokemon .number {
-    color: #000;
-    opacity: .3;
+    color: #fff;
+    opacity: .75;
     text-align: right;
     font-size: .625rem;
 }

@@ -1,0 +1,335 @@
+.pokemon-detail {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: -101vw;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all 300ms ease-in-out;
+    padding-bottom: 16px;
+}
+
+.pokemon-detail.-visible {
+    opacity: 1;
+    left: 0;
+}
+
+.pokemon-detail>.header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+}
+
+.pokemon-detail>.header>.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pokemon-detail>.header>.top>.button {
+    border: none;
+    background: none;
+    filter: invert(1);
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokemon-detail>.header>.top>.button>.icon {
+    height: 24px;
+    width: auto;
+}
+
+.pokemon-detail>.header>.name {
+    color: #fff;
+    padding: 0 16px;
+    margin: 0;
+    font-size: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pokemon-detail>.header>.name>.id {
+    font-size: 0.9rem;
+}
+
+.pokemon-detail>.header>.types {
+    list-style: none;
+    margin: 0;
+    padding: 0 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 4px;
+}
+
+.pokemon-detail>.header>.types>.type {
+    background-color: rgba(0, 128, 0, 0.3);
+    padding: 4px 8px;
+    border-radius: 24px;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.pokemon-detail>.header>.picture {
+    max-width: 60%;
+    margin: auto;
+    z-index: 2;
+}
+
+.pokemon-detail>.header::before {
+    content: '';
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 24px;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+    border-radius: 24px 24px 0 0;
+}
+
+.content-tabs {
+    background-color: #fff;
+    border-radius: 0 0 24px 24px;
+    padding: 16px;
+}
+
+.content-tabs>.selector {
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
+}
+
+.content-tabs>.selector>.button {
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #888;
+    padding: 14px 8px;
+    border-bottom: 2px solid #fff;
+}
+
+.content-tabs>.selector>.button.-selected {
+    color: #224;
+    border-bottom: 2px solid #00f;
+}
+
+.content-tabs>.tab {
+    overflow: hidden;
+    animation: pokemon-detail-tab-hide 400ms ease-in-out forwards;
+    position: relative;
+}
+
+.content-tabs>.tab.-visible {
+    animation: pokemon-detail-tab-show 400ms ease-in-out forwards;
+}
+
+@keyframes pokemon-detail-tab-show {
+    0% {
+        opacity: 0;
+        max-height: 0;
+        padding: 0;
+    }
+
+    99% {
+        opacity: 0.99;
+        max-height: 200vh;
+    }
+
+    100% {
+        opacity: 1;
+        max-height: none;
+        padding: 16px 0;
+    }
+}
+
+@keyframes pokemon-detail-tab-hide {
+    0% {
+        opacity: 1;
+        max-height: 200vh;
+        padding: 16px 0;
+    }
+
+    100% {
+        opacity: 0;
+        max-height: 0;
+        padding: 0;
+    }
+}
+
+.content-tabs>.tab td{
+    padding: 8px;
+    position: relative;
+}
+
+.content-tabs>.tab td:first-of-type{
+    color: #666;
+}
+
+.content-tabs>.tab>.stats {
+    width: 100%;
+}
+
+.content-tabs>.tab>.stats td:first-of-type{
+    width: 1%;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.content-tabs>.tab>.stats td:last-of-type{
+    display: grid;
+    gap: 16px;
+    align-items: center;
+    justify-content: start;
+    grid-template-columns: auto 1fr;
+}
+
+.content-tabs>.tab>.stats td:last-of-type::after{
+    content: '';
+    display: block;
+    height: 4px;
+    background-color: #f22;
+    width: 10%;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 11 ) td:last-of-type::after{background-color: hsl(  0, 100%, 40%);}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 10 ) td:last-of-type::after{background-color: hsl( 30, 100%, 40%);}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 9  ) td:last-of-type::after{background-color: hsl( 60, 100%, 40%);}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 8  ) td:last-of-type::after{background-color: hsl( 90, 100%, 40%);}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 7  ) td:last-of-type::after{background-color: hsl(120, 100%, 40%);}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 6  ) td:last-of-type::after{background-color: hsl(150, 100%, 40%);}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 5  ) td:last-of-type::after{background-color: hsl(180, 100%, 40%);}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 4  ) td:last-of-type::after{background-color: hsl(210, 100%, 40%);}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 3  ) td:last-of-type::after{background-color: hsl(240, 100%, 40%);}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 2  ) td:last-of-type::after{background-color: hsl(270, 100%, 40%);}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 1  ) td:last-of-type::after{background-color: hsl(300, 100%, 40%);}
+.content-tabs>.tab>.stats tr:nth-of-type(12n - 0  ) td:last-of-type::after{background-color: hsl(330, 100%, 40%);}
+
+.moves-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    text-transform: capitalize;
+    align-items: center;
+    justify-content: center;
+}
+
+.move-item {
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    transition: all 0.3s;
+    min-width: 0;
+}
+.move-item:nth-of-type(12n - 11 ){background-color: hsl(  0, 100%, 60%);color:#fff}
+.move-item:nth-of-type(12n - 10 ){background-color: hsl( 30, 100%, 60%);color:#000}
+.move-item:nth-of-type(12n - 9  ){background-color: hsl( 60, 100%, 60%);color:#000}
+.move-item:nth-of-type(12n - 8  ){background-color: hsl( 90, 100%, 60%);color:#000}
+.move-item:nth-of-type(12n - 7  ){background-color: hsl(120, 100%, 60%);color:#000}
+.move-item:nth-of-type(12n - 6  ){background-color: hsl(150, 100%, 60%);color:#000}
+.move-item:nth-of-type(12n - 5  ){background-color: hsl(180, 100%, 60%);color:#000}
+.move-item:nth-of-type(12n - 4  ){background-color: hsl(210, 100%, 60%);color:#fff}
+.move-item:nth-of-type(12n - 3  ){background-color: hsl(240, 100%, 60%);color:#fff}
+.move-item:nth-of-type(12n - 2  ){background-color: hsl(270, 100%, 60%);color:#fff}
+.move-item:nth-of-type(12n - 1  ){background-color: hsl(300, 100%, 60%);color:#fff}
+.move-item:nth-of-type(12n - 0  ){background-color: hsl(330, 100%, 60%);color:#fff}
+
+.move-item.-visible {
+    min-width: 100%;
+    padding: 1rem;
+}
+
+.move-item>.name {
+    display: block;
+    font-size: 1rem;
+    width: 100%;
+    padding: 40% 0 40%;
+    transition: all 0.3s;
+}
+
+.move-item.-visible>.name {
+    padding:0 0 0.75rem;
+    font-size:1.25rem
+}
+
+.move-item>.details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    max-height: 0;
+    max-width: 0;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.move-item.-visible>.details {
+    max-height: 2000vh;
+    max-width: 100vw;
+    opacity: 1;
+}
+
+.move-item>.details>.detail {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.5rem;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #204;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.move-item>.details>.detail>.level {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    font-size: 2.25em;
+    text-align: center;
+}
+
+.move-item>.details>.detail>.level::before {
+    content: 'LEVEL';
+    display: block;
+    font-size: 0.7rem;
+    padding-bottom: 0.25rem;
+}
+
+.move-item>.details>.detail>.method {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    text-transform: capitalize;
+}
+
+.move-item>.details>.detail>.method::before {
+    content: 'METHOD';
+    display: block;
+    font-size: 0.7rem;
+}
+
+.move-item>.details>.detail>.version {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+.move-item>.details>.detail>.version::before {
+    content: 'VERSION';
+    display: block;
+    font-size: 0.7rem;
+}
