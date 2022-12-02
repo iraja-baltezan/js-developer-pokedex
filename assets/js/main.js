@@ -1,5 +1,5 @@
-const pokemonList = document.getElementById('pokemonList')
-const loadMoreButton = document.getElementById('loadMoreButton')
+const pokemonList = document.getElementById('pokemon-list')
+const loadMoreButton = document.getElementById('load-more-button')
 
 const maxRecords = 151
 const limit = 10

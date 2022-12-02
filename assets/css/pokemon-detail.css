@@ -2,9 +2,9 @@
     position: fixed;
     opacity: 0;
     top: 0;
+    bottom: 0;
     left: -101vw;
     width: 100vw;
-    height: 100vh;
     z-index: 1000;
     overflow-x: hidden;
     overflow-y: auto;
@@ -45,7 +45,7 @@
     width: auto;
 }
 
-.pokemon-detail>.header>.name {
+.pokemon-detail>.header>.title {
     color: #fff;
     padding: 0 16px;
     margin: 0;
@@ -55,8 +55,16 @@
     justify-content: space-between;
 }
 
-.pokemon-detail>.header>.name>.id {
-    font-size: 0.9rem;
+.pokemon-detail>.header>.title>.name {
+    text-transform: capitalize;
+}
+
+.pokemon-detail>.header>.title>.id {
+    font-size: 0.5em;
+}
+
+.pokemon-detail>.header>.title>.id::before {
+    content: '#';
 }
 
 .pokemon-detail>.header>.types {
@@ -71,11 +79,11 @@
 }
 
 .pokemon-detail>.header>.types>.type {
-    background-color: rgba(0, 128, 0, 0.3);
     padding: 4px 8px;
     border-radius: 24px;
-    color: #fff;
     font-size: 0.85rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    background-image: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.1));
 }
 
 .pokemon-detail>.header>.picture {

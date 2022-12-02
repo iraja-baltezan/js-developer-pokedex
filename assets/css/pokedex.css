@@ -6,77 +6,24 @@
     list-style: none;
 }
 
-.normal {
-    background-color: #a6a877;
-}
-
-.grass {
-    background-color: #77c850;
-}
-
-.fire {
-    background-color: #ee7f30;
-}
-
-.water {
-    background-color: #678fee;
-}
-
-.electric {
-    background-color: #f7cf2e;
-}
-
-.ice {
-    background-color: #98d5d7;
-}
-
-.ground {
-    background-color: #dfbf69;
-}
-
-.flying {
-    background-color: #a98ff0;
-}
-
-.poison {
-    background-color: #a040a0;
-}
-
-.fighting {
-    background-color: #bf3029;
-}
-
-.psychic {
-    background-color: #f65687;
-}
-
-.dark {
-    background-color: #725847;
-}
-
-.rock {
-    background-color: #b8a137;
-}
-
-.bug {
-    background-color: #a8b720;
-}
-
-.ghost {
-    background-color: #6e5896;
-}
-
-.steel {
-    background-color: #b9b7cf;
-}
-
-.dragon {
-    background-color: #6f38f6;
-}
-
-.fairy {
-    background-color: #f9aec7;
-}
+.normal   { background-color: #a6a877; color: #214; }
+.grass    { background-color: #77c850; color: #214; }
+.fire     { background-color: #ee7f30; color: #214; }
+.water    { background-color: #678fee; color: #214; }
+.electric { background-color: #f7cf2e; color: #214; }
+.ice      { background-color: #98d5d7; color: #214; }
+.ground   { background-color: #dfbf69; color: #214; }
+.flying   { background-color: #a98ff0; color: #214; }
+.poison   { background-color: #a040a0; color: #fff; }
+.fighting { background-color: #bf3029; color: #fff; }
+.psychic  { background-color: #f65687; color: #214; }
+.dark     { background-color: #725847; color: #fff; }
+.rock     { background-color: #b8a137; color: #214; }
+.bug      { background-color: #a8b720; color: #214; }
+.ghost    { background-color: #6e5896; color: #fff; }
+.steel    { background-color: #b9b7cf; color: #214; }
+.dragon   { background-color: #6f38f6; color: #fff; }
+.fairy    { background-color: #f9aec7; color: #214; }
 
 .pokemon {
     display: flex;

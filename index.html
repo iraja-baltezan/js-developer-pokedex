@@ -25,31 +25,32 @@
     <section class="content">
         <h1>Pokedex</h1>
 
-        <ol id="pokemonList" class="pokemons">
+        <ol id="pokemon-list" class="pokemons">
             <!-- ..... Pokemons here ..... -->
         </ol>
 
         <div class="pagination">
-            <button id="loadMoreButton" type="button">
+            <button id="load-more-button" type="button">
                 Load More
             </button>
         </div>
     </section>
 
-    <div class="pokemon-detail grass" id="pokemonDetail">
+    <div class="pokemon-detail normal" id="pokemon-detail">
         <header class="header">
             <div class="top">
-                <button class="button -esc" id="pokemonDetailEscBtn">
+                <button class="button -esc" id="pokemon-detailEscBtn">
                     <img src="/assets/img/arrow-left.svg" alt="Voltar" class="icon">
                 </button>
                 <button class="button -love">
                     <img src="/assets/img/heart.svg" alt="Love" class="icon">
                 </button>
             </div>
-            <h2 class="name">
-                Bulbasaur
+            <h2 class="title">
+                <span class="name">Bulbasaur</span>
                 <span class="id">#001</span>
             </h2>
+            <script id="tpl-pokemon-detail-type" type="text/html"><li class="type {{type-name}}">{{type-name}}</li></script>
             <ol class="types">
                 <li class="type">grass</li>
                 <li class="type">poison</li>
@@ -67,27 +68,27 @@
                 <table>
                     <tr>
                         <td>Species </td>
-                        <td>Bulbasaur</td>
+                        <td id="pokemon-detail-species" class="_txt-capitalize">Bulbasaur</td>
                     </tr>
                     <tr>
                         <td>Base experience </td>
-                        <td>64</td>
+                        <td id="pokemon-detail-basexp">64</td>
                     </tr>
                     <tr>
                         <td>Height </td>
-                        <td>7 dm (* 0.1 = m)</td>
+                        <td id="pokemon-detail-height">7 dm (* 0.1 = m)</td>
                     </tr>
                     <tr>
                         <td>Weigth </td>
-                        <td>69 hg (* 100 = g)</td>
+                        <td id="pokemon-detail-weight">69 hg (* 100 = g)</td>
                     </tr>
                     <tr>
                         <td>Is default </td>
-                        <td>Yes</td>
+                        <td id="pokemon-detail-isdefault">Yes</td>
                     </tr>
                     <tr>
                         <td>Abilities </td>
-                        <td>Overgrow, Chlorophyll</td>
+                        <td id="pokemon-detail-abilities" class="_txt-capitalize">Overgrow, Chlorophyll</td>
                     </tr>
                 </table>
             </div>

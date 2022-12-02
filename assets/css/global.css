@@ -23,3 +23,7 @@ body {
         border-radius: 1rem;
     }
 }
+
+._txt-capitalize {
+    text-transform: capitalize;
+}
