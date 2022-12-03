@@ -17,6 +17,7 @@
     const weightElm = document.getElementById('pokemon-detail-weight');
     const isDefaultElm = document.getElementById('pokemon-detail-isdefault');
     const abilitiesElm = document.getElementById('pokemon-detail-abilities');
+    const statsTableElm = document.getElementById('pokemon-detail-stats-table');
     const movesListElm = detailElm.querySelector('.content-tabs>.tab>.moves-list');
 
     /**
@@ -46,6 +47,7 @@
     });
 
     function loadPokemonDetail(url) {
+        let strBuffer = '';
         pokeApi.getPokemonDetails(url)
             .then(pokemonDetail => {
                 console.log(
@@ -54,20 +56,42 @@
                 detailElm.dataset.type = pokemonDetail.types[0].type.name;
                 titleNameElm.textContent = pokemonDetail.name;
                 titleIdElm.textContent = pokemonDetail.id;
-                typesElm.innerHTML='';
+
+                strBuffer = '';
                 pokemonDetail.types.forEach(function(slot){
-                    typesElm.innerHTML += typeTpl.replaceAll('{{type-name}}', slot.type.name);
+                    strBuffer += typeTpl.replaceAll('{{type-name}}', slot.type.name);
                 });
+                typesElm.innerHTML = strBuffer;
+
                 pictureElm.src = pokemonDetail.sprites.other.dream_world.front_default;
                 speciesElm.innerHTML = pokemonDetail.species.name;
                 baseXpElm.innerHTML = pokemonDetail.base_experience;
                 heightElm.innerHTML = dmConverter(pokemonDetail.height);
                 weightElm.innerHTML = hgConverter(pokemonDetail.weight);
                 isDefaultElm.innerHTML = pokemonDetail.is_default ? 'Yes' : 'No';
-                abilitiesElm.innerHTML = '';
+
+                strBuffer = '';
                 pokemonDetail.abilities.forEach(function(item, index, items){
-                    abilitiesElm.innerHTML += item.ability.name + ((index + 1) < items.length ? ', ' : '');
+                    strBuffer += item.ability.name + ((index + 1) < items.length ? ', ' : '');
                 })
+                abilitiesElm.innerHTML = strBuffer;
+
+                strBuffer = '';
+                pokemonDetail.stats.forEach(function(stat){
+                    strBuffer += `<tr><td>${stat.stat.name}</td><td>${stat.base_stat}</td><td><span style="width:${stat.base_stat}%"></span></td></tr>`;
+                })
+                statsTableElm.innerHTML = strBuffer;
+
+                strBuffer = '';
+                pokemonDetail.moves.forEach(function(moveItem){
+                    strBuffer += `<li class="move-item"><span class="name">${moveItem.move.name}</span>
+                    <ul class="details">`;
+                    moveItem.version_group_details.forEach(function(detail){
+                        strBuffer += `<li class="detail"><div class="level">${detail.level_learned_at}</div><div class="method">${detail.move_learn_method.name}</div><div class="version">${detail.version_group.name}</div></li>`;
+                    });
+                    strBuffer += `</ul></li>`;
+                })
+                movesListElm.innerHTML = strBuffer;
 
                 detailElm.classList.add(detailElm.dataset.type, '-visible');
             })
