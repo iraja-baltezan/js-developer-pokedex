@@ -2,6 +2,10 @@
 
 Resposta para o desafio "Construindo uma Pokédex com JavaScript", da trilha "JS Developer" em [web.dio.me](https://web.dio.me/lab/construindo-uma-pokedex-com-javascript/learning/24e0bb4b-c268-49af-bed0-d97b749917be).
 
+O resultado deste código pode ser acessado no endereço:
+
+https://iraja-baltezan.github.io/js-developer-pokedex
+
 Em resumo, o código deverá ser extendido, acrescentando-se a "**página de detalhe do pokemon**". Quando algum item da lista for clicado ou tocado, então a página com os detalhes do respectivo pokemon será exibida.
 
 ## Enunciado do desafio
